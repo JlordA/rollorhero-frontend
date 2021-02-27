@@ -1,0 +1,45 @@
+//USERS//
+export const LOGIN_USER = "LOGIN_USER"
+export const USER_LOGGED_IN = "USER_LOGGED_IN"
+export const LOGOUT_USER = "LOGOUT_USER"
+
+
+//DELI_SANDWICH//
+export const POST_DELI_SANDWICH = "POST_DELI_SANDWICH"
+
+//SANDWICHES//
+export const GET_SANDWICHES = "GET_SANDWICHES"
+export const GET_SANDWICH = "GET_SANDWICH"
+export const POST_SANDWICH = "POST_SANDWICH"
+export const SANDWICH_CLICK = "SANDWICH_CLICK"
+export const SANDWICH_FORM = "SANDWICH_FORM"
+
+//LIKES//
+export const POST_LIKE = "POST_LIKE"
+
+//DELIS//
+export const GET_DELIS = "GET_DELIS"
+export const CURRENT_DELI = "CURRENT_DELI"
+export const GET_DELI = "GET_DELI"
+export const DELI_FORM = "DELI_FORM"
+export const POST_DELI = "POST_DELI"
+export const DELI_CLICK = "DELI_CLICK"
+export const RESET_DELI = "RESET_DELI"
+
+//FILTERS//
+export const DELI_FILTER = "DELI_FILTER"
+export const SANDWICH_FILTER = "SANDWICH_FILTER"
+export const BOROUGH_FILTER = "BOROUGH_FILTER"
+export const FIND_DELI = "FIND_DELI"
+export const RESET_DELI_LOCATION = "RESET_DELI_LOCATION"
+export const RENDER_DELI_LIST = "RENDER_DELI_LIST"
+
+//REVIEWS//
+export const GET_REVIEWS = "GET_REVIEWS"
+export const REVIEW_EDIT_CLICK = "REVIEW_EDIT_CLICK"
+export const REVIEW_CLICK = "REVIEW_CLICK"
+export const RENDER_REVIEW = "RENDER_REVIEW"
+export const POST_REVIEW = "POST_REVIEW"
+export const PATCH_REVIEW = "PATCH_REVIEW"
+export const REVIEW_FORM = "REVIEW_FORM"
+export const GET_REVIEW = "GET_REVIEW"

@@ -1,0 +1,94 @@
+
+/* HOME CSS */
+
+    .homeContainerDiv {
+        display: grid;
+        grid-template-columns: .5fr repeat(4, 1fr) .5fr;
+        grid-template-rows: .5fr repeat(6, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        background-color: white;
+        /* background-color: #F0A868; */
+        font-family: 'Roboto Condensed', sans-serif;
+        
+    }
+    
+    .bannerDiv { 
+        grid-area: 1 / 2 / 2 / 6;
+        background-color: #FFE8C2;
+        border: solid;
+    }
+
+    .buttonbarDiv { 
+        grid-area: 2 / 2 / 5 / 3;
+        border: solid;
+        background-color: #FFE8C2;
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+
+    .mapDiv { 
+        grid-area: 2 / 3 / 5 / 6;
+        border: solid;
+    }
+
+    .detailsContainerDiv { 
+        grid-area: 5 / 2 / 8 / 6;
+        border: solid;
+        background-color: #FFE8C2;
+        font-weight: bold;
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+    
+    .tab-parent{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        font-family: 'Roboto Condensed', sans-serif;
+        margin-top: 10px;
+    }
+
+    .child{
+        display: inline-block;
+        width: 30%;
+        margin: 2px;
+        padding:1% 10%;
+        background: #44444c;
+        color: rgb(248, 245, 245);
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: bold;
+        border-radius: 4px;
+        text-align: center;
+    }
+
+    .tab-div {
+        overflow: auto;
+        height: 500px;
+        margin: 20px;
+        padding: 10px;
+        margin-top: 30px;
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+    
+    .ul{
+        list-style-type: none;
+   }
+
+    .filters{
+        padding-top: 20px;
+        padding-left: 20px;
+        text-align: center;
+    }
+
+    .login-form{
+        background-color: #F0A868;
+        text-align: center;
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+    
+    .mapSizeDiv{
+        height: auto;
+        width: auto; 
+        
+    }
+
+    
