@@ -15,11 +15,11 @@ export function loginUser(userObj) {
             .then(response => response.json())
             .then(data => {
                 if (data.id) {
-                    console.log("found user", data['username'])
+                    // console.log("found user", data['username'])
                     localStorage.setItem("USER_DATA", JSON.stringify(data))
                     dispatch({ type: LOGIN_USER, payload: data })
                 } else {
-                    console.log("user not found")
+                    // console.log("user not found")
                     window.alert("Wrong Username or Password Please Try Again")
                 }
             })
