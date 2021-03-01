@@ -8,7 +8,7 @@ import styled from 'styled-components'
 function Banner(props){
 
     return(
-            <BannerPic src="/public/img/rollbanner.png"/>   
+            <BannerPic src="/public/img/rollbanner.png" alt="rollbanner"/>   
     )
 }
 
