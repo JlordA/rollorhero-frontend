@@ -28,5 +28,5 @@ yarn-error.log*
 # Local Netlify folder
 .netlify
 
+# linter
 .eslintcache
-
