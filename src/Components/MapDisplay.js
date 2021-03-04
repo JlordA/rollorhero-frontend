@@ -76,7 +76,7 @@ class MapDisplay extends React.Component {
         if (this.state.name === "") {
             this.setState({ name: name })
         }
-        const proxyurl = "https://cors-anywhere.herokuapp.com/"
+        // const proxyurl = "https://cors-anywhere.herokuapp.com/"
 
         const url = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${name}&inputtype=textquery&fields=formatted_address,name,opening_hours&key=`
         // const map = new Map(document.getElementById('searchmap'))
@@ -85,7 +85,8 @@ class MapDisplay extends React.Component {
         // const queryurl = url + process.env.REACT_APP_API_KEY
         // // const options = { mode: 'no-cors' }
         // fetch(queryurl, { mode: 'no-cors' })
-        fetch(proxyurl + url + process.env.REACT_APP_API_KEY)
+        // fetch(proxyurl + url + process.env.REACT_APP_API_KEY)
+        fetch(url + process.env.REACT_APP_API_KEY)
             .then(r => r.json())
             .then(data => {
                 if (this.state.address === "") {
