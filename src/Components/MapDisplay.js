@@ -115,7 +115,6 @@ class MapDisplay extends React.Component {
             } else {
                 return false
             }
-            // False Might not work
         })
     }
 

@@ -47,7 +47,9 @@ class Deli extends React.Component {
                 </DeliDetails>
                 <Associated>
                     <Header>Associated Sandwiches</Header>
-                    <AssociatedDetail>{this.props.deli.sandwiches ? this.sandwichesOfDeli() : null}</AssociatedDetail>
+                    <AssociatedDetail>
+                        {this.props.deli.sandwiches ? this.sandwichesOfDeli() : null}
+                    </AssociatedDetail>
                 </Associated>
             </DeliWrapper>
         )
@@ -116,7 +118,7 @@ const DetailTitle = styled.p`
     background: #44444c;
     color: white;
 `
-const AssociatedDetail = styled.p`
+const AssociatedDetail = styled.div`
     font-weight: bold;
     margin-right: 50px;
 `

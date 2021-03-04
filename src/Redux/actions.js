@@ -139,7 +139,7 @@ export function getSandwich(sandwichObj) {
             .then(r => r.json())
             .then(sandwich => {
                 dispatch({ type: GET_SANDWICH, payload: sandwich })
-                console.log("success", sandwich)
+                // console.log("success", sandwich)
             })
     }
 }

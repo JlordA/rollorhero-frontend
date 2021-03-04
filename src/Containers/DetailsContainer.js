@@ -50,7 +50,6 @@ class DetailsContainer extends React.Component {
     }
 
     clickHandler = (e) => {
-        // console.log("working", e.target.id)
         this.setState({ tab: e.target.id })
     }
 
@@ -64,7 +63,6 @@ class DetailsContainer extends React.Component {
         }
     }
     render() {
-        // console.log(this.state.tab)
         return (
             <div>
                 <div className="tab-parent" >
@@ -80,7 +78,6 @@ class DetailsContainer extends React.Component {
                 </div>
                 <div>
                     {this.tabRender()}
-                    {/* {this.detailsRender()} */}
                 </div>
             </div>
         )
