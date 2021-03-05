@@ -1,7 +1,5 @@
 import React from 'react'
 import { GoogleComponent } from 'react-google-location' 
-
-const API_KEY = process.env.REACT_APP_API_KEY
  
 class MapSearch extends Component {
   
@@ -14,7 +12,7 @@ class MapSearch extends Component {
       <div >
          <GoogleComponent
          
-          apiKey={API_KEY}
+          apiKey={process.env.REACT_APP_API_KEY}
           language={'en'}
           country={'country:in|country:us'}
           coordinates={true}

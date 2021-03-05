@@ -83,14 +83,14 @@ class MapDisplay extends React.Component {
         // const service = new PlacesService.PlacesService(map)
         // service.
         // const queryurl = url + process.env.REACT_APP_API_KEY
-        const options = {
-            mode: 'no-cors',
-            headers: {
-                "Access-Control-Allow-Origin": "https://604162ba4b5b9500089f977f--rollorhero.netlify.app"
-            } 
-        }
+        // const options = {
+        //     mode: 'no-cors',
+        //     headers: {
+        //         "Access-Control-Allow-Origin": "https://604162ba4b5b9500089f977f--rollorhero.netlify.app"
+        //     } 
+        // }
+        fetch(url + process.env.REACT_APP_API_KEY)
         // fetch(proxyurl + url + process.env.REACT_APP_API_KEY)
-        fetch(url + process.env.REACT_APP_API_KEY, options)
             .then(r => r.json())
             .then(data => {
                 if (this.state.address === "") {

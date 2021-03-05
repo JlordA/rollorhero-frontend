@@ -6,7 +6,6 @@ import { Button } from 'semantic-ui-react'
 import { GoogleComponent } from 'react-google-location'
 import styled from 'styled-components'
 
-const API_KEY = process.env.REACT_APP_API_KEY
 
 class FilterBar extends React.Component {
 
@@ -145,7 +144,7 @@ class FilterBar extends React.Component {
                 <Header>Find A Deli</Header>
                 <ButtonDiv>
                     <GoogleComponent
-                        apiKey={API_KEY}
+                        apiKey={process.env.REACT_APP_API_KEY}
                         language={'en'}
                         country={'country:in|country:us'}
                         coordinates={true}
