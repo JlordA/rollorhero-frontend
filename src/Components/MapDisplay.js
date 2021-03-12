@@ -13,6 +13,7 @@ class MapDisplay extends React.Component {
         showingInfoWindow: false,
         activeMarker: {},
         selectedPlace: {},
+        place: null,
         name: "",
         address: "",
         hours: ""
@@ -102,7 +103,6 @@ class MapDisplay extends React.Component {
         return <Marker name={name} address={this.state.address} hours={this.state.hours} onClick={this.onMarkerClick} position={{ lat: lat, lng: lng }} />
     }
 
-
     /// MAP ACTIONS ///
     onMarkerClick = (props, marker) => {
         this.setState({
@@ -127,8 +127,8 @@ class MapDisplay extends React.Component {
         this.props.showDeliForm()
     }
 
+
     render() {
-        // console.log(this.state.name)
         return (
             <div className="mapSizeDiv" >
                 <Map
@@ -153,6 +153,8 @@ class MapDisplay extends React.Component {
                         :
                         <h1>Loading</h1>
                     }
+                    <div className="search-bar">
+                    </div>
                     <InfoWindowEx
                         marker={this.state.activeMarker}
                         visible={this.state.showingInfoWindow}
@@ -161,7 +163,6 @@ class MapDisplay extends React.Component {
                             <h3>{this.state.selectedPlace.name}</h3>
                             <p>Address: {this.state.selectedPlace.address}</p>
                             {this.state.selectedPlace.name === this.state.name ? <Button type="button" onClick={this.renderAddDeliFormHandler}>Add Me</Button> : null}
-                            {/* {this.props.currentDelis.includes(this.state.name) ? null : <Button type="button" onClick={this.renderAddDeliFormHandler}>Add Me</Button>} */}
                             <Button type="button" onClick={this.renderReviewFormHandler}>Review Me</Button>
                         </div>
                     </InfoWindowEx>
@@ -191,6 +192,7 @@ function mdp(dispatch) {
     }
 }
 
+// export default connect(msp,mdp)(MapDisplay)
 export default connect(msp, mdp)(GoogleApiWrapper({
     apiKey: (process.env.REACT_APP_API_KEY)
 })(MapDisplay))
