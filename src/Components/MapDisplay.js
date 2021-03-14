@@ -103,6 +103,7 @@ class MapDisplay extends React.Component {
         return <Marker name={name} address={this.state.address} hours={this.state.hours} onClick={this.onMarkerClick} position={{ lat: lat, lng: lng }} />
     }
 
+
     /// MAP ACTIONS ///
     onMarkerClick = (props, marker) => {
         this.setState({
@@ -138,6 +139,10 @@ class MapDisplay extends React.Component {
                     google={this.props.google}
                     zoom={13}
                     initialCenter={{
+                        lat: 40.683436,
+                        lng: -73.941249
+                    }}
+                    center={{
                         lat: 40.683436,
                         lng: -73.941249
                     }}

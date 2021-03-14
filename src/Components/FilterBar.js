@@ -136,7 +136,8 @@ class FilterBar extends React.Component {
 
   sendSearch = (e) => {
     e.preventDefault();
-    this.props.findDeli(this.state.place);
+    // this.props.findDeli(this.state.place);
+    this.props.findDeli(this.state.address);
   };
 
   logoutClickHandler = () => {

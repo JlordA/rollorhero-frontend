@@ -231,7 +231,6 @@ function reviewReducer(prevState = defaultState.review, action) {
 function reviewEditClickedReducer(prevState = defaultState.reviewEditClicked, action){
     switch (action.type) {
         case "REVIEW_EDIT_CLICK":
-            // console.log("in edit click reducer: ", prevState)
             return !prevState
         default:
             return prevState
