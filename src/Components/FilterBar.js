@@ -23,7 +23,7 @@ class FilterBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      address: "",
+      address: '',
       sandwichStyle: "",
       deliStyle: "",
       boroughStyle: "",
@@ -137,7 +137,12 @@ class FilterBar extends React.Component {
   sendSearch = (e) => {
     e.preventDefault();
     // this.props.findDeli(this.state.place);
-    this.props.findDeli(this.state.address);
+    let searchResult = {
+        name: this.state.address,
+        latLng: this.state.place
+    }
+    // console.log(searchResult)
+    this.props.findDeli(searchResult);
   };
 
   logoutClickHandler = () => {
@@ -146,7 +151,7 @@ class FilterBar extends React.Component {
   };
 
   handleChange = (address) => {
-    this.setState({ address });
+    this.setState({ address: address });
   };
 
   handleSelect = (address) => {
@@ -155,11 +160,14 @@ class FilterBar extends React.Component {
       .then((latLng) => {
           console.log("Success", latLng);
           this.setState({ address });
+          this.setState({ place: latLng});
         })
       .catch((error) => console.error("Error", error));
   };
 
   render() {
+      console.log(this.state.address)
+      console.log(this.state.place)
     return (
       <div className="filters">
         <Title>Search The City</Title>
@@ -260,14 +268,9 @@ function mdp(dispatch) {
 }
 // export default connect(msp, mdp)(FilterBar);
 
-export default connect(
-  msp,
-  mdp
-)(
-  GoogleApiWrapper({
+export default connect(msp,mdp)(GoogleApiWrapper({
     apiKey: process.env.REACT_APP_API_KEY,
-  })(FilterBar)
-);
+  })(FilterBar));
 
 const Title = styled.h1`
   border: solid 2px;

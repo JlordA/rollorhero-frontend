@@ -72,35 +72,36 @@ class MapDisplay extends React.Component {
 
     /// CONDITIONAL SEARCH RENDER (USING GOOGLE PLACES) ///
     searchMarker = () => {
-        const titleArray = this.props.deliLocation.place.split(",")
-        const name = titleArray[0]
-        if (this.state.name === "") {
-            this.setState({ name: name })
-        }
-        // const proxyurl = "https://cors-anywhere.herokuapp.com/"
-
-        const url = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${name}&inputtype=textquery&fields=formatted_address,name,opening_hours&key=`
-        // const map = new Map(document.getElementById('searchmap'))
-        // const service = new PlacesService.PlacesService(map)
-        // service.
-        // const queryurl = url + process.env.REACT_APP_API_KEY
-        // const options = {
-        //     mode: 'no-cors',
-        //     headers: {
-        //         "Access-Control-Allow-Origin": "https://604162ba4b5b9500089f977f--rollorhero.netlify.app"
-        //     } 
+        console.log(this.props.deliLocation.latLng.lat)
+        // const titleArray = this.props.deliLocation.name.split(",")
+        // const name = titleArray[0]
+        // if (this.state.name === "") {
+        //     this.setState({ name: name })
         // }
-        fetch(url + process.env.REACT_APP_API_KEY)
-        // fetch(proxyurl + url + process.env.REACT_APP_API_KEY)
-            .then(r => r.json())
-            .then(data => {
-                if (this.state.address === "") {
-                    this.setState({ address: data.candidates[0]["formatted_address"], hours: data.candidates[0]["hours_open"] })
-                }
-            })
-        const lat = this.props.deliLocation.coordinates["lat"]
-        const lng = this.props.deliLocation.coordinates["lng"]
-        return <Marker name={name} address={this.state.address} hours={this.state.hours} onClick={this.onMarkerClick} position={{ lat: lat, lng: lng }} />
+        // // const proxyurl = "https://cors-anywhere.herokuapp.com/"
+
+        // const url = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${name}&inputtype=textquery&fields=formatted_address,name,opening_hours&key=`
+        // // const map = new Map(document.getElementById('searchmap'))
+        // // const service = new PlacesService.PlacesService(map)
+        // // service.
+        // // const queryurl = url + process.env.REACT_APP_API_KEY
+        // // const options = {
+        // //     mode: 'no-cors',
+        // //     headers: {
+        // //         "Access-Control-Allow-Origin": "https://604162ba4b5b9500089f977f--rollorhero.netlify.app"
+        // //     } 
+        // // }
+        // fetch(url + process.env.REACT_APP_API_KEY)
+        // // fetch(proxyurl + url + process.env.REACT_APP_API_KEY)
+        //     .then(r => r.json())
+        //     .then(data => {
+        //         if (this.state.address === "") {
+        //             this.setState({ address: data.candidates[0]["formatted_address"], hours: data.candidates[0]["hours_open"] })
+        //         }
+        //     })
+        // const lat = this.props.deliLocation.coordinates["lat"]
+        // const lng = this.props.deliLocation.coordinates["lng"]
+        // return <Marker name={name} address={this.state.address} hours={this.state.hours} onClick={this.onMarkerClick} position={{ lat: lat, lng: lng }} />
     }
 
 
@@ -130,6 +131,7 @@ class MapDisplay extends React.Component {
 
 
     render() {
+        console.log(this.props.deliLocation)
         return (
             <div className="mapSizeDiv" >
                 <Map
