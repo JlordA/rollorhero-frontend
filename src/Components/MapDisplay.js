@@ -136,8 +136,8 @@ class MapDisplay extends React.Component {
             <div className="mapSizeDiv" >
                 <Map
                     id='searchmap'
-                    style={{ width: '58.9vw', height: '75.9vh' }}
-                    containerStyle={{ height: '58vh', width: '48.8vw' }}
+                    // style={{ width: '58.9vw', height: '75.9vh' }}
+                    // containerStyle={{ height: '58vh', width: '48.8vw' }}
                     google={this.props.google}
                     zoom={13}
                     initialCenter={{

@@ -19,17 +19,18 @@ import PlacesAutocomplete, {
 
 import { GoogleApiWrapper } from "google-maps-react";
 
+
 class FilterBar extends React.Component {
   constructor(props) {
     super(props);
+    this.address = ""
     this.state = {
-      realAddress: '',
-      address: '',
+      // address: '',
       sandwichStyle: "",
       deliStyle: "",
       boroughStyle: "",
-      place: null,
-      name: ""
+      place: "",
+      latLng: ""
     };
   }
 
@@ -140,8 +141,9 @@ class FilterBar extends React.Component {
     e.preventDefault();
     // this.props.findDeli(this.state.place);
     let searchResult = {
-        name: this.state.address,
-        latLng: this.state.place
+        place: this.state.place,
+        latLng: this.state.latLng,
+        address: this.address
     }
     // console.log(searchResult)
     this.props.findDeli(searchResult);
@@ -152,30 +154,37 @@ class FilterBar extends React.Component {
     this.props.userLoggedIn();
   };
 
-  handleChange = (address) => {
-    this.setState({ address: address });
+  handleChange = (place) => {
+    this.setState({ place: place });
   };
 
-  handleSelect = (address) => {
-    geocodeByAddress(address)
+  handleSelect = (place) => {
+    geocodeByAddress(place)
       
+      // .then((results) => {
+        //   // this.setState({ address: results[0].formatted_address });
+        //   getLatLng(results[0])
+      // })
       .then((results) => {
-        this.setState({ realAddress: results[0].formatted_address });
-        getLatLng(results[0])
+        this.address = results[0].formatted_address;
+        return getLatLng(results[0]);
       })
       .then((latLng) => {
-          console.log()
+          console.log(latLng)
           console.log("Success", latLng);
-          this.setState({ name: address });
-          this.setState({ place: latLng});
+          this.setState({ 
+            place: place, 
+            latLng: latLng
+          });
+          // this.setState({  });
         })
       .catch((error) => console.error("Error", error));
   };
 
   render() {
-      console.log("ADDRESS: " + this.state.realAddress)
-      console.log("NAME: " + this.state.name)
-      console.log("PLACE:" + this.state.place)
+      console.log("ADDRESS:",  this.address)
+      console.log("PLACE:",  this.state.place)
+      console.log("LATLNG:",  this.state.latLng)
     return (
       <div className="filters">
         <Title>Search The City</Title>
@@ -195,7 +204,7 @@ class FilterBar extends React.Component {
         <Header>Find A Deli</Header>
         <ButtonDiv>
           <PlacesAutocomplete
-            value={this.state.address}
+            value={this.state.place}
             onChange={this.handleChange}
             onSelect={this.handleSelect}
           >
