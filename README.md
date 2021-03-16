@@ -13,7 +13,6 @@ Welcome to Roll or Hero.  Here you can browse the trendy sandwiches of NYC by re
 5. A user can edit their review.
 6. A user can login. 
 
-<!-- ![Read Me Server](public/img/RollorHeroGif.gif) -->
 
 ## To Run
 **Setup**
@@ -31,7 +30,11 @@ The client is running on http://localhost:3000/
 * npm install
 * npm start
 
-Searver uses a postgresql database.  The server is running on:
+**Login:**
+username: James
+password: Password4321
+
+Server uses a postgresql database.  The server is running on:
 
 http://localhost:400/api/sandwiches
 
