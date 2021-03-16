@@ -11,12 +11,11 @@ import {
   setBoroughFilter,
 } from "../Redux/actions";
 import { Button } from "semantic-ui-react";
-import styled, { ThemeConsumer } from "styled-components";
+import styled from "styled-components";
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from "react-places-autocomplete";
-
 import { GoogleApiWrapper } from "google-maps-react";
 
 
@@ -25,7 +24,6 @@ class FilterBar extends React.Component {
     super(props);
     this.address = ""
     this.state = {
-      // address: '',
       sandwichStyle: "",
       deliStyle: "",
       boroughStyle: "",
@@ -139,13 +137,11 @@ class FilterBar extends React.Component {
 
   sendSearch = (e) => {
     e.preventDefault();
-    // this.props.findDeli(this.state.place);
     let searchResult = {
         place: this.state.place,
         latLng: this.state.latLng,
         address: this.address
     }
-    // console.log(searchResult)
     this.props.findDeli(searchResult);
   };
 
@@ -160,31 +156,20 @@ class FilterBar extends React.Component {
 
   handleSelect = (place) => {
     geocodeByAddress(place)
-      
-      // .then((results) => {
-        //   // this.setState({ address: results[0].formatted_address });
-        //   getLatLng(results[0])
-      // })
       .then((results) => {
         this.address = results[0].formatted_address;
         return getLatLng(results[0]);
       })
       .then((latLng) => {
-          console.log(latLng)
-          console.log("Success", latLng);
           this.setState({ 
             place: place, 
             latLng: latLng
           });
-          // this.setState({  });
         })
       .catch((error) => console.error("Error", error));
   };
 
   render() {
-      console.log("ADDRESS:",  this.address)
-      console.log("PLACE:",  this.state.place)
-      console.log("LATLNG:",  this.state.latLng)
     return (
       <div className="filters">
         <Title>Search The City</Title>
@@ -283,7 +268,6 @@ function mdp(dispatch) {
     logOutUser: () => dispatch(logOutUser()),
   };
 }
-// export default connect(msp, mdp)(FilterBar);
 
 export default connect(msp,mdp)(GoogleApiWrapper({
     apiKey: process.env.REACT_APP_API_KEY,
