@@ -11,7 +11,7 @@ import {
   setBoroughFilter,
 } from "../Redux/actions";
 import { Button } from "semantic-ui-react";
-import styled from "styled-components";
+import styled, { ThemeConsumer } from "styled-components";
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
@@ -23,11 +23,13 @@ class FilterBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      realAddress: '',
       address: '',
       sandwichStyle: "",
       deliStyle: "",
       boroughStyle: "",
       place: null,
+      name: ""
     };
   }
 
@@ -156,18 +158,24 @@ class FilterBar extends React.Component {
 
   handleSelect = (address) => {
     geocodeByAddress(address)
-      .then((results) => getLatLng(results[0]))
+      
+      .then((results) => {
+        this.setState({ realAddress: results[0].formatted_address });
+        getLatLng(results[0])
+      })
       .then((latLng) => {
+          console.log()
           console.log("Success", latLng);
-          this.setState({ address });
+          this.setState({ name: address });
           this.setState({ place: latLng});
         })
       .catch((error) => console.error("Error", error));
   };
 
   render() {
-      console.log(this.state.address)
-      console.log(this.state.place)
+      console.log("ADDRESS: " + this.state.realAddress)
+      console.log("NAME: " + this.state.name)
+      console.log("PLACE:" + this.state.place)
     return (
       <div className="filters">
         <Title>Search The City</Title>
