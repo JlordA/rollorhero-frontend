@@ -110,11 +110,10 @@ class MapDisplay extends React.Component {
     render() {
         console.log(this.state.selectedPlace)
         return (
-            <div className="mapSizeDiv" >
+            <>
                 <Map
                     id='searchmap'
-                    style={{ width: '58.9vw', height: '75.9vh' }}
-                    containerStyle={{ height: '58vh', width: '48.8vw' }}
+                    containerStyle={{ width: "100%", height: "100%", position: "absolute" }}
                     google={this.props.google}
                     zoom={13}
                     initialCenter={{
@@ -151,7 +150,7 @@ class MapDisplay extends React.Component {
                         </div>
                     </InfoWindowEx>
                 </Map>
-            </div>
+            </>
         )
     }
 }
