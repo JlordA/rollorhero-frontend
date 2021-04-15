@@ -108,7 +108,6 @@ class MapDisplay extends React.Component {
 
 
     render() {
-        console.log(this.state.selectedPlace)
         return (
             <>
                 <Map
@@ -175,7 +174,6 @@ function mdp(dispatch) {
     }
 }
 
-// export default connect(msp,mdp)(MapDisplay)
 export default connect(msp, mdp)(GoogleApiWrapper({
     apiKey: (process.env.REACT_APP_API_KEY)
 })(MapDisplay))
