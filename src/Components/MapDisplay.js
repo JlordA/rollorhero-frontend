@@ -106,7 +106,7 @@ class MapDisplay extends React.Component {
         this.props.showDeliForm()
     }
 
-
+    
     render() {
         return (
             <>
@@ -120,8 +120,8 @@ class MapDisplay extends React.Component {
                         lng: -73.941249
                     }}
                     center={{
-                        lat: 40.683436,
-                        lng: -73.941249
+                        lat: 40.70294624697779,
+                        lng: -73.96980084624495
                     }}
                     onDragend={this.centerMoved}
                     onClick={this.mapClicked}>

@@ -34,5 +34,7 @@ export default connect(msp)(DeliList)
 const ListWrapper = styled.div`
     border: solid;
     background-color: #94BFA7;
-    font-family: 'Roboto Condensed', sans-serif;
+    border-radius: 4px; 
+    height: 425px;
+    overflow: auto;
 `

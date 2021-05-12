@@ -42,9 +42,10 @@ class AddDeliForm extends React.Component {
             hours_open: this.state.hours_open,
             neighborhood: this.state.neighborhood,
             borough: this.state.borough,
-            lat: this.props.deliLocation.coordinates["lat"],
-            lng: this.props.deliLocation.coordinates["lng"]
+            lat: this.props.deliLocation.latLng["lat"],
+            lng: this.props.deliLocation.latLng["lng"]
         }
+        console.log(deliObj)
         this.props.createDeli(deliObj)
         this.props.showDeliForm()
         this.props.clearDeliCache()
@@ -132,7 +133,6 @@ class AddDeliForm extends React.Component {
                     </Form.Group>
                     </FormFields>
                     <FormFields>
-
                     <Form.Field control={Button}>Add Deli</Form.Field>
                     </FormFields>
                 </Form>

@@ -10,6 +10,7 @@ import DeliList from '../Components/DeliList'
 import Deli from '../Components/Deli'
 import CreateSandwichForm from '../Components/CreateSandwichForm'
 import SandwichList from '../Components/SandwichList'
+import styled from 'styled-components'
 
 class DetailsContainer extends React.Component {
 
@@ -67,13 +68,13 @@ class DetailsContainer extends React.Component {
             <div>
                 <div className="tab-parent" >
                     <div id="review" className="child" onClick={this.clickHandler}>
-                        <span>REVIEWS</span>
+                        <TabTitle>REVIEWS</TabTitle>
                     </div>
                     <div id="deli" className="child" onClick={this.clickHandler}>
-                        <span>DELIS</span>
+                        <TabTitle>DELIS</TabTitle>
                     </div>
                     <div id="sandwich" className="child" onClick={this.clickHandler}>
-                        <span>SANDWICHES</span>
+                        <TabTitle>SANDWICHES</TabTitle>
                     </div>
                 </div>
                 <div>
@@ -99,3 +100,6 @@ function msp(state) {
 
 export default connect(msp)(DetailsContainer)
 
+const TabTitle = styled.span`
+    font-size: 15pt;
+` 
